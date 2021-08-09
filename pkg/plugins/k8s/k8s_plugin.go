@@ -305,7 +305,7 @@ func (p *K8sPlugin) systemServicesStateUpdate() error {
 		if !exist {
 			return fmt.Errorf("k8s-plugin systemServicesStateUpdate(): %q not found", systemService.Name)
 		}
-		if p.isSystemServiceNeedUpdate(systemService) {
+		if !exist || p.isSystemServiceNeedUpdate(systemService){
 			services = append(services, systemService)
 		}
 	}
